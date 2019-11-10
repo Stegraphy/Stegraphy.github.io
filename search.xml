@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Choerodon敏捷</title>
+    <url>/2019/11/09/Choerodon%E6%95%8F%E6%8D%B7&amp;DevOps/</url>
+    <content><![CDATA[<h3 id="Choerodon敏捷"><a href="#Choerodon敏捷" class="headerlink" title="Choerodon敏捷"></a>Choerodon敏捷</h3><ul>
+<li>周一计划会议（user，ui，全体开发）<ol>
+<li>产品经理新建待办事项（排好迭代需要做什么事）讲述功能</li>
+<li>提供哪些接口，逻辑，怎么返回数据</li>
+<li>子任务对故事的拆分</li>
+</ol>
+</li>
+</ul>
+<h3 id="DevOps介绍"><a href="#DevOps介绍" class="headerlink" title="DevOps介绍"></a>DevOps介绍</h3><ul>
+<li>什么是DevOps</li>
+<li>为什么使用DevOps<ul>
+<li>运维早期参与开发</li>
+<li>开发接触运维</li>
+</ul>
+</li>
+<li>怎样使用DevOps</li>
+</ul>
+<h3 id="DevOps流程"><a href="#DevOps流程" class="headerlink" title="DevOps流程"></a>DevOps流程</h3><ol>
+<li>计划</li>
+<li>编程</li>
+<li>构建</li>
+<li>测试</li>
+<li>发布</li>
+<li>运维</li>
+</ol>
+<h3 id="DevOps方法"><a href="#DevOps方法" class="headerlink" title="DevOps方法"></a>DevOps方法</h3><ul>
+<li>开发测试</li>
+<li>控制</li>
+<li>持续测试</li>
+<li>持续发布和部署</li>
+<li>监控（数据采集、日志）</li>
+</ul>
+<h3 id="DevOps技术"><a href="#DevOps技术" class="headerlink" title="DevOps技术"></a>DevOps技术</h3><ul>
+<li>基础设施即代码</li>
+<li>交付通道</li>
+<li>部署自动化</li>
+<li>发布管理</li>
+</ul>
+<h3 id="DevOps工具"><a href="#DevOps工具" class="headerlink" title="DevOps工具"></a>DevOps工具</h3><h3 id="基于云原生的PaaS平台"><a href="#基于云原生的PaaS平台" class="headerlink" title="基于云原生的PaaS平台"></a>基于云原生的PaaS平台</h3><ul>
+<li>DevOps/Agile</li>
+<li>持续交付</li>
+<li>微服务<ul>
+<li>松散耦合的组件；无需要等待其他组件自动化部署</li>
+</ul>
+</li>
+<li>容器<ul>
+<li>一次构建，随处运行，提供了最大的可移植性</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用管理"><a href="#应用管理" class="headerlink" title="应用管理"></a>应用管理</h3><ul>
+<li>应用<ul>
+<li>应用模板</li>
+<li>版本控制</li>
+<li>应用发布</li>
+<li>应用市场</li>
+</ul>
+</li>
+</ul>
+<h3 id="持续交付"><a href="#持续交付" class="headerlink" title="持续交付"></a>持续交付</h3><ul>
+<li>Gitlab</li>
+<li>Gitlab CI</li>
+<li>CD Server</li>
+<li>环境管理</li>
+</ul>
+<h3 id="分支管理与版本控制"><a href="#分支管理与版本控制" class="headerlink" title="分支管理与版本控制"></a>分支管理与版本控制</h3><ul>
+<li>GitFlow、GitHubFlow、GitLabFlow<ol>
+<li>master：主分支，用于版本持续发布</li>
+<li>develop：开发分支</li>
+<li>feature：特性分支，用于日常开发时切出分支进行单功能开发</li>
+<li>bugfix： 故障修补分支</li>
+<li>release：发布分支</li>
+<li>hotfix： 热修分支，用于产品发布后修复缺陷</li>
+<li>custom： 自定义分支</li>
+</ol>
+</li>
+<li>版本格式：主。次。修<ul>
+<li>主版本号：次版本号：修订号</li>
+</ul>
+</li>
+</ul>
+<h3 id="组织架构调整"><a href="#组织架构调整" class="headerlink" title="组织架构调整"></a>组织架构调整</h3><h3 id="Agile-DevOps-部分规范示例"><a href="#Agile-DevOps-部分规范示例" class="headerlink" title="Agile/DevOps-部分规范示例"></a>Agile/DevOps-部分规范示例</h3>]]></content>
+      <categories>
+        <category>理论</category>
+      </categories>
+      <tags>
+        <tag>Choerodon</tag>
+        <tag>敏捷</tag>
+        <tag>DevOps</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/11/09/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
