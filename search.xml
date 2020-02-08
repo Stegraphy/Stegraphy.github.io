@@ -1,6 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker基础</title>
+    <url>/2020/02/08/Docker%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h3 id="技术基础（1）"><a href="#技术基础（1）" class="headerlink" title="技术基础（1）"></a>技术基础（1）</h3><h4 id="1-Git"><a href="#1-Git" class="headerlink" title="1.Git"></a>1.Git</h4><ul>
+<li>git提交代码步骤<ul>
+<li>初始化一个Git仓库，使用git init命令。</li>
+<li>添加文件到Git仓库，分两步：<ol>
+<li>使用命令git add <code>&lt;file&gt;</code>，注意，可反复多次使用，添加多个文件；</li>
+<li>使用命令git commit -m <code>&lt;message&gt;</code>，完成。</li>
+</ol>
+</li>
+<li>建立远程库(在github或者码云上创建reposity)</li>
+<li>将本地的库链接到远-&gt;终端中输入: <code>git remote add origin HTTPS链接</code></li>
+<li>上传代码到远程库,上传之前最好先Pull一下,再执行命令: <code>git pull origin master</code></li>
+<li><code>git push origin master</code></li>
+</ul>
+</li>
+<li>分支 (猪齿鱼的三种分支方式)</li>
+<li>要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。<ul>
+<li>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。</li>
+</ul>
+</li>
+<li>Git鼓励大量使用分支：<ol>
+<li>查看分支：git branch</li>
+<li>创建分支：git branch <code>&lt;name&gt;</code></li>
+<li>切换分支：git checkout <code>&lt;name&gt;</code></li>
+<li>创建+切换分支：git checkout -b <code>&lt;name&gt;</code></li>
+<li>合并某分支到当前分支：git merge <code>&lt;name&gt;</code></li>
+<li>删除分支：git branch -d <code>&lt;name&gt;</code></li>
+</ol>
+</li>
+<li>课后作业：本地生成ssh，配置到github，git clon + 项目 （通过ssh克隆）</li>
+</ul>
+<h4 id="2-1-maven项目指令打包运行"><a href="#2-1-maven项目指令打包运行" class="headerlink" title="2.1 maven项目指令打包运行"></a>2.1 maven项目指令打包运行</h4><p>1.问题<br>git在执行git add命令时出现以下警告：</p>
+<p>warning: LF will be replaced by CRLF in test1.txt. The file will have its original line endings in working directory</p>
+<p>2.原因<br>因为Git的换行符检查功能。LF是linux下的换行符，而CRLF是enter + 换行。<br>Git提供了一个换行符检查功能（core.safecrlf），可以在提交时检查文件是否混用了不同风格的换行符。这个功能的选项如下：</p>
+<ul>
+<li>false - 不做任何检查</li>
+<li>warn - 在提交时检查并警告</li>
+<li>true - 在提交时检查，如果发现混用则拒绝提交</li>
+</ul>
+<p>3.解决方法<br>Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf true</span><br></pre></td></tr></table></figure>
+<ul>
+<li>项目打包问题<br><code>Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project seckill: There are test failures.</code></li>
+</ul>
+<p>解决办法：<code>mvn clean package -Dmaven.test.skip=true</code><br>或者写入pom文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;  </span><br><span class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;  </span><br><span class="line">        &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;  </span><br><span class="line">        &lt;version&gt;2.4.2&lt;/version&gt;  </span><br><span class="line">        &lt;configuration&gt;  </span><br><span class="line">          &lt;skipTests&gt;true&lt;/skipTests&gt;  </span><br><span class="line">        &lt;/configuration&gt;  </span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="mvn验证"><a href="#mvn验证" class="headerlink" title="mvn验证"></a>mvn验证</h3><ol>
+<li>在本地开发环境安装mvn，并进行相关的设置</li>
+<li>构建一个mvn项目，能够使用mvn指令将demo程序进行编译、打包、运行<ul>
+<li>mvn compile (编译)</li>
+<li>mvn clean（清洗）</li>
+<li>mvn package （打包）</li>
+</ul>
+</li>
+<li>使用mvn指令将编译文件进行清理，重新进行打包<ul>
+<li>运行jar包命令：<br><code>java -jar spring-boot-webrestfulcurd-0.0.1-SNAPSHOT.jar</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="3-docker-Componts"><a href="#3-docker-Componts" class="headerlink" title="3. docker Componts"></a>3. docker Componts</h3><h3 id="4-docker-安装mysql"><a href="#4-docker-安装mysql" class="headerlink" title="4.docker 安装mysql"></a>4.docker 安装mysql</h3><ul>
+<li>docker run -p 6379:6379 镜像id</li>
+</ul>
+<h3 id="5-制作dockerfile"><a href="#5-制作dockerfile" class="headerlink" title="5. 制作dockerfile"></a>5. 制作dockerfile</h3><ul>
+<li>docker build -t nginx<br><code>Run echo &#39;&lt;h1&gt;Hello,Docker!&lt;.h1&gt; &gt; /usr/share/nginx/html/index.html</code></li>
+</ul>
+<hr>
+<ul>
+<li><p>Centens下查看软件安装目录<br><code>rpm -qla | grep docker</code></p>
+</li>
+<li><p>更改镜像加速地址</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl	enable	docker</span><br></pre></td></tr></table></figure>
+<p>启用服务后，编辑    </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/etc/systemd/system/multi-user.target.wants/docker.service</span><br></pre></td></tr></table></figure>
+<p>​    文件，找到    ExecStart=    这一 行，在这行最后添加加速器地址    —registry-mirror=&lt;加速器地址&gt;    ，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd	--registry-mirror=https://jxus37ad.mirror.aliyuncs.com</span><br></pre></td></tr></table></figure>
+<ul>
+<li>系统下的docker.service地址： <code>/usr/lib/systemd/system/docker.service</code></li>
+<li>重新加载配置并且重新启动。<br><code>$    sudo    systemctl    daemon-reload</code><br><code>$    sudo    systemctl    restart    docker</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Centos环境下通过docker安装mysql并测试连接"><a href="#Centos环境下通过docker安装mysql并测试连接" class="headerlink" title="Centos环境下通过docker安装mysql并测试连接"></a>Centos环境下通过docker安装mysql并测试连接</h3><ul>
+<li><p>$ docker search mysql (搜索mysql镜像)</p>
+</li>
+<li><p>在汉得内部私服网址找软件版本</p>
+<ul>
+<li><a href="https://registry.saas.hand-china.com/harbor/projects/9/repositories" target="_blank" rel="noopener">https://registry.saas.hand-china.com/harbor/projects/9/repositories</a></li>
+</ul>
+</li>
+<li><p>1.拉取镜像文件下载<br><code>docker pull mysql:8.0</code></p>
+</li>
+<li><ol>
+<li>运行镜像，设置root账号初始密码（123456），映射本地宿主机端口3308到Docker端口3306。测试过程没有挂载本地数据盘：</li>
+</ol>
+<p><code>docker run -it --rm --name mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql</code></p>
+</li>
+<li><ol>
+<li>查看已运行的容器<br><code>docker ps -a</code></li>
+</ol>
+</li>
+<li><ol>
+<li>进入mysql容器：<br><code>docker exec -it mysql /bin/bash</code></li>
+</ol>
+</li>
+<li><ol>
+<li><p>在容器内登陆Mysql:<br><code>mysql -uroot -p123456</code></p>
+<ul>
+<li>查看用户信息</li>
+</ul>
+<p><code>select host,user,plugin,authentication_string from mysql.user;</code></p>
+<ul>
+<li>备注：host为 % 表示不限制ip localhost表示本机使用 plugin非mysql_native_password 则需要修改密码</li>
+</ul>
+<p><code>ALTER user &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;</code></p>
+<ul>
+<li>更新配置<br><code>FLUSH PRIVILEGES;</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>查询3308端口是否对外开放<br><code>firewall-cmd --query-port=3308/tcp</code></p>
+</li>
+<li><p>使端口3308对外开放端口<br><code>firewall-cmd --add-port=3308/tcp --permanent</code></p>
+</li>
+<li><p>主机navicat测试连接<br><strong>注意</strong></p>
+<ol>
+<li>连接主机地址为虚拟机 ip addr下的网卡地址：<br><code>ens32: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000 link/ether 00:0c:29:b4:70:d1 brd ff:ff:ff:ff:ff:ff inet **192.168.174.128/24 brd 192.168.174.255** scope global noprefixroute dynamic ens32</code></li>
+</ol>
+<ul>
+<li>停止docker项目<ul>
+<li><code>docker stop mysql</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>问题：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
+<ul>
+<li>解决办法重启服务：<code>service docker restart</code></li>
+</ul>
+</li>
+</ul>
+<p>docker运行jar包</p>
+<ol>
+<li><p>将jar包存放于指定文件夹，在同级目录创建dockerfile文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM java:8</span><br><span class="line">MAINTAINER wangixang</span><br><span class="line">VOLUME /tmp</span><br><span class="line">#  简化 jar 的名字路径</span><br><span class="line">ADD spring-boot-webrestfulcurd-0.0.1-SNAPSHOT.jar app.jar</span><br><span class="line"></span><br><span class="line"># 执行 java -jar 命令 （CMD：在启动容器时才执行此行。RUN：构建镜像时就执行此行）</span><br><span class="line">RUN bash -c &apos;touch /app.jar&apos;</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构建镜像文件<br><code>docker build -t spring .</code><br>此行命令最后有一个点，表示使用当前上下文中的 dockerfile 文件<br>构建镜像，-t ：给镜像取名为 spring</p>
+</li>
+<li><p>运行容器<br><code>docker run -d -p 9091:9090 --name spring spring:latest</code></p>
+</li>
+</ol>
+<ul>
+<li><p>运行过程中遇到的问题</p>
+<ol>
+<li>jar从主机拖入到宿主机损坏，导致容器启动失败，一直是Exited (1)状态。需要在主机下载winscp软件传送jar包到虚拟机</li>
+<li>端口占用错误<br><img src="https://raw.githubusercontent.com/Stegraphy/Stegraphy.github.io/master/img/porterr.png" alt="porterr"></li>
+</ol>
+<ul>
+<li>原因:<br>docker服务启动时定义的自定义链DOCKER由于某种原因被清掉<br>重启docker服务及可重新生成自定义链DOCKER</li>
+<li>解决方式：重启docker容器更改port映射端口<br><code>systemctl restart docker</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Choerodon敏捷</title>
     <url>/2019/11/09/Choerodon%E6%95%8F%E6%8D%B7&amp;DevOps/</url>
     <content><![CDATA[<h3 id="Choerodon敏捷"><a href="#Choerodon敏捷" class="headerlink" title="Choerodon敏捷"></a>Choerodon敏捷</h3><ul>
